@@ -79,9 +79,9 @@ function campaignFill(fetchedInfo, campaign) {
 		}
 
 	} else if (campaign.templateName === `Multi Image Carousel Ad Template` || `Multi Image Slider Ad Template`) {	//based on the specs of our templates we know how many products can fit in our ad, therefore '<=2' 3 lines down tells us only to grab the first 3 products from the api call when there could be more returned (as is the case).
-		campaign.title = '';	//need to clear the default values or else we would end up with "default value, actual value0, actual value1" because we are adding values from the api when there are multiple products, not just overwriting them
-		campaign.image = '';	//we didn't need to clear the values for the single image ad because we just overwrote them.
-		campaign.adCopy = '';
+		campaign['Ad Title'] = '';	//need to clear the default values or else we would end up with "default value, actual value0, actual value1" because we are adding values from the api when there are multiple products, not just overwriting them
+		campaign.Image = '';	//we didn't need to clear the values for the single image ad because we just overwrote them.
+		campaign['adCopy'] = '';
 		for (i = 0; i <= 2; i++) {	//iterate through the obj properties, looking for the ones we want to update as per Tech Test instructions ('use product name as the Ad Title and product description for the Ad Copy.') 
 			for (var property in fetchedInfo[i]) {	//I know the API call from Shoelace returns product price, but it was explicitly stated that we are trying to recreate the campaigns found in Appendix B(which doesn't include a price), so that's exactly what we will do.
 
